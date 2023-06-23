@@ -20,5 +20,20 @@
 }
 .rightContainer {
     flex: 1;
-
+}
+.title {
+    color: transparent;
+    font-size: xx-large;
+    background: var(--gradient-primary);
+    background-clip: text;
+    background-size: 300% 100%;
+    animation: animateBg 2s infinite alternate-reverse;
+}
+@keyframes animateBg {
+    0% {
+        background-position: 0 0;
+    }
+    100% {
+        background-position: 100% 0;
+    }
 }

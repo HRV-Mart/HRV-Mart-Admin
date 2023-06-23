@@ -1,6 +1,7 @@
 import Head from 'next/head'
 import { Inter } from 'next/font/google'
 import styles from '@/styles/login.module.css'
+import Typewriter from "typewriter-effect";
 
 const inter = Inter({ subsets: ['latin'] })
 
@@ -18,7 +19,18 @@ export default function Login() {
                 <div className={styles.leftContainer}/>
                 <hr className={styles.verticalDivider}/>
                 <div className={styles.rightContainer}>
-                    Right Part
+                    <div className={styles.title}>
+                        <Typewriter
+                            options={{
+                                strings: [
+                                    "Welcome back to HRV-Mart Admin portal",
+                                    "Please login with your account"
+                                ],
+                                autoStart: true,
+                                loop: true
+                            }}
+                        />
+                    </div>
                 </div>
             </main>
         </>
