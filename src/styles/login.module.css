@@ -58,9 +58,6 @@
 .brand_icon_container {
     flex: 1 ;
 }
-.blackBackground {
-    background-color: #121212;
-}
 .brand_icon {
     height: 30px;
     margin: 5px;

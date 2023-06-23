@@ -2,11 +2,19 @@ import Head from 'next/head'
 import { Inter } from 'next/font/google'
 import styles from '@/styles/login.module.css'
 import Typewriter from "typewriter-effect";
+import {useEffect, useState} from "react";
 
 const inter = Inter({ subsets: ['latin'] })
 
 
 export default function Login() {
+    const [isDarkTheme, setDarkTheme] = useState(false)
+    const [change, setChange] = useState(false)
+    setInterval(()=>{setChange(!change)}, 1000)
+
+    useEffect(()=>{
+        setDarkTheme(window.matchMedia("(prefers-color-scheme: dark)").matches)
+    }, [change])
     return (
         <>
             <Head>
@@ -34,7 +42,7 @@ export default function Login() {
                     <div className={styles.loginContainer}>
                         <div onClick={()=>oauth_2_handler('github')} className={styles.loginButton}>
                             <div className={styles.brand_icon_container}>
-                                <img src={'/github_icon.svg'} className={`${styles.brand_icon} ${styles.blackBackground}`}/>
+                                <img src={isDarkTheme ? '/github_icon_white.svg':'/github_icon.svg'} className={`${styles.brand_icon}`}/>
                             </div>
                             <div className={styles.loginTitle}>
                                 Login with GitHub
@@ -43,7 +51,7 @@ export default function Login() {
 
                         <div onClick={()=>oauth_2_handler('discord')} className={styles.loginButton}>
                             <div className={styles.brand_icon_container}>
-                                <img src={'/discord_icon.svg'} className={`${styles.brand_icon} ${styles.blackBackground}`}/>
+                                <img src={'/discord_icon.svg'} className={`${styles.brand_icon}`}/>
                             </div>
                             <div className={styles.loginTitle}>
                                 Login with Discord
@@ -52,7 +60,7 @@ export default function Login() {
 
                         <div onClick={()=>oauth_2_handler('google')} className={styles.loginButton}>
                             <div className={styles.brand_icon_container}>
-                                <img src={'/google_icon.svg'} className={`${styles.brand_icon} ${styles.blackBackground}`}/>
+                                <img src={'/google_icon.svg'} className={`${styles.brand_icon}`}/>
                             </div>
                             <div className={styles.loginTitle}>
                                 Login with Google
