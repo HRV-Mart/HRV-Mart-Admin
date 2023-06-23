@@ -31,8 +31,39 @@ export default function Login() {
                             }}
                         />
                     </div>
+                    <div className={styles.loginContainer}>
+                        <div onClick={()=>oauth_2_handler('github')} className={styles.loginButton}>
+                            <div className={styles.brand_icon_container}>
+                                <img src={'/github_icon.svg'} className={`${styles.brand_icon} ${styles.blackBackground}`}/>
+                            </div>
+                            <div className={styles.loginTitle}>
+                                Login with GitHub
+                            </div>
+                        </div>
+
+                        <div onClick={()=>oauth_2_handler('discord')} className={styles.loginButton}>
+                            <div className={styles.brand_icon_container}>
+                                <img src={'/discord_icon.svg'} className={`${styles.brand_icon} ${styles.blackBackground}`}/>
+                            </div>
+                            <div className={styles.loginTitle}>
+                                Login with Discord
+                            </div>
+                        </div>
+
+                        <div onClick={()=>oauth_2_handler('google')} className={styles.loginButton}>
+                            <div className={styles.brand_icon_container}>
+                                <img src={'/google_icon.svg'} className={`${styles.brand_icon} ${styles.blackBackground}`}/>
+                            </div>
+                            <div className={styles.loginTitle}>
+                                Login with Google
+                            </div>
+                        </div>
+                    </div>
                 </div>
             </main>
         </>
     )
+    function oauth_2_handler(provider_name) {
+
+    }
 }
