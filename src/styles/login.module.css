@@ -1,0 +1,24 @@
+.main {
+    display: flex;
+    align-items: center;
+    min-height: 100vh;
+    background-color: var(--background);
+}
+.verticalDivider {
+    height: 100vh;
+    color: aliceblue;
+}
+.leftContainer {
+    flex: 1;
+    background-image: url("/login.svg") ;
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: contain;
+    margin: 0 20px;
+    width: 100%;
+    height: 100vh;
+}
+.rightContainer {
+    flex: 1;
+
+}
