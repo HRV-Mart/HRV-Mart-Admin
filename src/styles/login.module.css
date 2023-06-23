@@ -63,10 +63,13 @@
 }
 .brand_icon_container {
     flex: 1 ;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
 }
 .brand_icon {
     height: 30px;
-    margin: 5px;
+    margin-left: 5px;
 }
 .loginTitle {
     flex: 5;
