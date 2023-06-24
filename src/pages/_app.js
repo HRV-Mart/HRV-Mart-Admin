@@ -3,6 +3,8 @@ import Header from "@/component/header";
 import Footer from "@/component/footer";
 import {useEffect, useState} from "react";
 import {logError} from "@/service/logging/logging";
+import {Account, Client} from "appwrite";
+import {postRequest} from "@/service/network/network";
 
 export default function App({ Component, pageProps }) {
   const appwrite_endpoint = process.env.NEXT_PUBLIC_APPWRITE_ENDPOINT;
