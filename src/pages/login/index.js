@@ -3,11 +3,12 @@ import { Inter } from 'next/font/google'
 import styles from '@/styles/login.module.css'
 import Typewriter from "typewriter-effect";
 import {useEffect, useState} from "react";
+import {toast} from "react-toastify";
 
 const inter = Inter({ subsets: ['latin'] })
 
 
-export default function Login() {
+export default function Login({account, application_url, message}) {
     const [isDarkTheme, setDarkTheme] = useState(false)
     const [change, setChange] = useState(false)
     setInterval(()=>{setChange(!change)}, 1000)
@@ -15,6 +16,18 @@ export default function Login() {
     useEffect(()=>{
         setDarkTheme(window.matchMedia("(prefers-color-scheme: dark)").matches)
     }, [change])
+    if (message === "LOGIN_ERROR") {
+        toast(
+            'Unable to Login',
+            {
+                hideProgressBar: false,
+                autoClose: 2000,
+                type: "error",
+                theme: "dark"
+            }
+        );
+    }
+
     return (
         <>
             <Head>
@@ -71,7 +84,11 @@ export default function Login() {
             </main>
         </>
     )
-    function oauth_2_handler(provider_name) {
-
+    function oauth_2_handler(provider) {
+        account.createOAuth2Session(
+            provider,
+            application_url,
+            `${application_url}/login?message=LOGIN_ERROR`
+        )
     }
 }
